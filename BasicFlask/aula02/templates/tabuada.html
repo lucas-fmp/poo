@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabuada</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Tabuada do Número {{ numero }}</h1>
+    <hr>
+    <table>
+        {% for linha in dados %}
+            <tr>
+                <td>{{ linha[0] }}</td>
+                <td> x</td>
+                <td> {{ linha[1] }}</td>
+                <td> =</td>
+                <td> {{ linha[2] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

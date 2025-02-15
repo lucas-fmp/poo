@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Fatorial</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Fatorial do numero {{ numero }}</h1>
+    <hr>
+    <p>
+        {% for num in numeros %}
+            <span>
+                {{ num[0] }}
+            </span>
+            <span>
+                {{ num[1] }}
+            </span>
+        {% endfor %}
+        <span>{{ total }}</span>
+    </p>
+</body>
+</html>

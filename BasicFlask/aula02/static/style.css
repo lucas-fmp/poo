@@ -1,0 +1,29 @@
+h1 {
+    color: darkblue;
+    font-family: Verdana, serif;
+}
+
+hr {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: cornflowerblue;
+}
+
+p {
+    color: blue;
+    font-family: "Tahoma", serif;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid coral;
+    font-size: 1.5em;
+    color: darkgoldenrod;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px dotted coral;
+}
+
