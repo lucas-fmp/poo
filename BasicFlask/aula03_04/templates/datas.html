@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resultados de Datas</title>
+        <link rel="stylesheet" type="text/css" href="/static/estilo.css">
+    </head>
+    <body>
+        <h1>Resultados de Processamento de Datas</h1>
+        <table>
+            <tr>
+                <td> Data Inicial</td>
+                <td> {{ data_ini | fmt_dta_br }}</td>
+                <td> Dia da Semana</td>
+                <td> {{ dia_semana_ini }}</td>
+            </tr>
+            <tr>
+                <td> Data Final</td>
+                <td> {{ data_fim | fmt_dta_br }}</td>
+                <td> Dia da Semana</td>
+                <td> {{ dia_semana_fim }}</td>
+            </tr>
+            <tr>
+                <td> Intervalo de Dias</td>
+                <td colspan="3"> {{ numero_dias }}</td>
+            </tr>
+        </table>
+    </body>
 </html>

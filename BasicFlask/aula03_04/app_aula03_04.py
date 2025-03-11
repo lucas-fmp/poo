@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
-from datetime import datetime
+from filtros.datas import fmt_dta_br
+from util.datas import html_to_python
 
 app = Flask(__name__)
+
+app.jinja_env.filters['fmt_dta_br'] = fmt_dta_br  # Registra o filtro de formatação de data para BR
 
 
 # Rota principal será chamada quando digitar http://localhost:5000 no Browser
@@ -45,6 +48,41 @@ def texto():
     return render_template('texto.html', texto=texto, num_caracteres=num_caracteres, maiusculo=maiusculo,
                            minusculo=minusculo)
 
+
+# Rota para mostrar o formulário que recebe duas datas para processamento
+@app.route('/form_datas')
+def form_datas():
+    return render_template('form_datas.html')
+
+
+# Rota para mostrar os resultados do processamento de datas
+@app.route('/datas', methods=['POST'])
+def datas():
+    dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
+    data_ini = html_to_python(request.form['data_ini'])
+    data_fim = html_to_python(request.form['data_fim'])
+    diferenca = data_fim - data_ini
+    numero_dias = diferenca.days
+    dia_semana_ini = dias[data_ini.weekday()]
+    dia_semana_fim = dias[data_fim.weekday()]
+    return render_template('datas.html', data_ini=data_ini,
+                           data_fim=data_fim,
+                           dia_semana_ini=dia_semana_ini, dia_semana_fim=dia_semana_fim,
+                           numero_dias=numero_dias)
+
+
+# Rota para mostrar o formulário que recebe 3 nomes para processamento
+@app.route('/form_ordenar')
+def form_ordenar():
+    return render_template('form_ordenar.html')
+
+
+# Rota para mostrar nomes ordenados em ordem alfabética
+@app.route('/ordenar', methods=['POST'])
+def ordenar():
+    nomes = [request.form['n1'].lower(), request.form['n2'].lower(), request.form['n3'].lower()]
+    nomes_ordenados = sorted(nomes)
+    return render_template('ordenar.html', nomes_ordenados=nomes_ordenados)
 
 if __name__ == '__main__':
     app.run(debug=True)
