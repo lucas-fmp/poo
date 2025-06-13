@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+   <h3 class="h3">Combos de Locais</h3>
+   {{ cb_local | safe }}
+   <br>
+   <button type="button" class="btn btn-primary"
+           onclick="modalInfo('Local Selecionado', 'Opções Selecionadas: ' + printMultiple('cb_local'))">Local Selecionado</button>
+   <br><br>
+   {{ cb_local_filter | safe }}
+   <br>
+   <button type="button" class="btn btn-primary"
+           onclick="modalInfo('Local Selecionado', 'Opções Selecionadas: ' + printMultiple('cb_local_filter'))">Local Selecionado</button>
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+<h3 class="h3">Combos de Setores</h3>
+{{ cb_setor | safe }}
+<br>
+<button type="button" class="btn btn-primary"
+        onclick="modalInfo('Setor Selecionado', 'Id: ' + getValue('cb_setor') + '<br>Setor: ' + getText('cb_setor'))">
+    Setor Selecionado
+</button>
+<br><br>
+{{ cb_setor_filter | safe }}
+<br>
+<button type="button" class="btn btn-primary"
+        onclick="modalInfo('Setor Selecionado', 'Id: ' + getValue('cb_setor_filter') + '<br>Setor: ' + getText('cb_setor_filter'))">
+    Setor Selecionado
+</button>
+
+
+{% endblock %}
